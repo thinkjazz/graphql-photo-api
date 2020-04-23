@@ -4,7 +4,7 @@ const fs = require('fs')
 const findBy = (value, array, field='id') =>
 	array[array.map(item=>item[field]).indexOf(value)]
 
-const generateFakeUsers = count => 
+const generateFakeUsers = (count) =>
     fetch(`https://randomuser.me/api/?results=${count}`)
         .then(res => res.json())
 
@@ -21,7 +21,7 @@ const requestGithubToken = credentials =>
         }
     ).then(res => res.json())
 
-const requestGithubUserAccount = token => 
+const requestGithubUserAccount = (token) =>
     fetch(`https://api.github.com/user?access_token=${token}`)
         .then(res => res.json())
         
